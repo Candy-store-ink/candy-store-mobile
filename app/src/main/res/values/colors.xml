@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash_screen_background">#D59797</color>
+    <color name="btn_cont_as_guest">#C8BDBD</color>
+    <color name="btn_sing_in_first">#F2B7C6</color>
+    <color name="btn_sing_in_second">#BDF59BFF</color>
+
 </resources>
