@@ -3,13 +3,14 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+
 android {
     namespace 'com.example.candystore'
     compileSdk 33
 
     defaultConfig {
         applicationId "com.example.candystore"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -31,7 +32,6 @@ android {
         jvmTarget = '1.8'
     }
 }
-
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.10.1'
@@ -45,4 +45,5 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     implementation 'androidx.fragment:fragment-ktx:1.6.0'
+
 }
