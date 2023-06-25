@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/login_layout_padding"
-    >
+    android:background="@color/btn_sing_in_first_1">
 
     <ImageView
         android:id="@+id/logo_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/candies_login_image"
+        android:contentDescription="@string/logo_imView_cont_desc"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/candies_login_image"
-        android:contentDescription="@string/logo_imView_cont_desc" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_login"
@@ -24,26 +23,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint"
-        app:hintTextColor="@color/black"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/red"
+        app:boxCornerRadiusTopEnd="@dimen/corners_radius_20dp"
+        app:boxCornerRadiusTopStart="@dimen/corners_radius_20dp"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/input_layout_stroke_color"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:startIconDrawable="@drawable/baseline_person_2_24"
-        app:boxCornerRadiusTopEnd="@dimen/corners_radius_20dp"
-        app:boxCornerRadiusTopStart="@dimen/corners_radius_20dp"
-        >
+        app:boxStrokeWidth="@dimen/boxStrokeWidth">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/loginInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textSize="@dimen/input_text_size_16sp"
-            />
+            android:textSize="@dimen/input_text_size_16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -52,7 +49,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
-        app:boxStrokeColor="@color/red"
+        app:boxCornerRadiusBottomEnd="@dimen/corners_radius_20dp"
+        app:boxCornerRadiusBottomStart="@dimen/corners_radius_20dp"
+        app:boxStrokeColor="@color/input_layout_stroke_color"
+        app:boxStrokeWidth="@dimen/boxStrokeWidth"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
         app:hintTextColor="@color/black"
@@ -60,8 +60,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:startIconDrawable="@drawable/baseline_lock_person_24"
-        app:boxCornerRadiusBottomEnd="@dimen/corners_radius_20dp"
-        app:boxCornerRadiusBottomStart="@dimen/corners_radius_20dp"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -69,8 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textSize="@dimen/input_text_size_16sp"
-            />
+            android:textSize="@dimen/input_text_size_16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -78,11 +75,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_15dp"
+        android:clickable="true"
         android:fontFamily="@font/itim"
         android:text="@string/forgot_pass_TV"
         android:textSize="@dimen/_16sp"
         android:textStyle="bold"
-        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@id/sing_in_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.914"
@@ -120,17 +117,16 @@
         android:id="@+id/cont_as_guest_click_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10dp"
         android:clickable="true"
         android:fontFamily="@font/itim"
         android:text="@string/btn_continue_as_guest"
-        android:layout_marginBottom="@dimen/_10dp"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/blue"
         android:textSize="@dimen/_16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

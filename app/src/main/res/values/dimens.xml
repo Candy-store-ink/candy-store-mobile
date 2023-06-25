@@ -8,4 +8,5 @@
     <dimen name="_16sp">16sp</dimen>
     <dimen name="_40dp">40dp</dimen>
     <dimen name="_10dp">10dp</dimen>
+    <dimen name="boxStrokeWidth">2dp</dimen>
 </resources>
