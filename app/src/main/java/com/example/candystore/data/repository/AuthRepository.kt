@@ -9,5 +9,5 @@ class AuthRepository {
         AuthRetrofitInstance.authApi.checkUser(token)
 
     suspend fun getUser(userAuth: UserAuth) =
-        AuthRetrofitInstance.authApi.getUser(userAuth)
+        AuthRetrofitInstance.authApi.login(userAuth)
 }

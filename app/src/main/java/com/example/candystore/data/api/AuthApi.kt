@@ -16,7 +16,7 @@ interface AuthApi {
     ) : Response<UserAuthResponse>
 
     @POST("auth/login")
-    suspend fun getUser(
+    suspend fun login(
         @Body userAuth: UserAuth
     ): Response<UserAuthResponse>
 }
