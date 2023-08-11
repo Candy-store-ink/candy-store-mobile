@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class MainViewModel(
+class AuthViewModel(
     val authRepository: AuthRepository
 ) : ViewModel() {
     private val _isLoading = MutableStateFlow(true)
@@ -32,28 +32,13 @@ class MainViewModel(
     fun validateUser(token: String) = viewModelScope.launch {
         userAuthResponse.postValue(Resource.Loading())
 
-        val response = authRepository.validateUser(token)
-        userAuthResponse.postValue(handlingUserAuthResponse(response))
-
     }
 
     fun login(userAuth: UserAuth) = viewModelScope.launch {
         userAuthResponse.postValue(Resource.Loading())
 
-        val response = authRepository.getUser(userAuth)
-        userAuthResponse.postValue(handlingUserAuthResponse(response))
     }
 
-    private fun handlingUserAuthResponse(
-        response: Response<UserAuthResponse>
-    ): Resource<UserAuthResponse> {
-        if (response.isSuccessful) {
-            response.body()?.let {
-                return Resource.Success(it)
-            }
-        }
-        return Resource.Error(response.message())
-    }
 
 
 
