@@ -1,4 +1,4 @@
-package com.example.candystore.models
+package com.example.candystore.data.models
 
 import com.example.candystore.utils.Roles
 

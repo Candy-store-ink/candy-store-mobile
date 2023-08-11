@@ -1,4 +1,4 @@
-package com.example.candystore.api
+package com.example.candystore.data.api
 
 import com.example.candystore.utils.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient

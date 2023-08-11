@@ -1,7 +1,7 @@
-package com.example.candystore.api
+package com.example.candystore.data.api
 
-import com.example.candystore.models.UserAuth
-import com.example.candystore.models.UserAuthResponse
+import com.example.candystore.data.models.UserAuth
+import com.example.candystore.data.models.UserAuthResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

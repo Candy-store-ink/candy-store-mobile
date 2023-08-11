@@ -1,7 +1,7 @@
-package com.example.candystore.repository
+package com.example.candystore.data.repository
 
-import com.example.candystore.api.AuthRetrofitInstance
-import com.example.candystore.models.UserAuth
+import com.example.candystore.data.api.AuthRetrofitInstance
+import com.example.candystore.data.models.UserAuth
 
 class AuthRepository {
 

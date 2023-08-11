@@ -2,7 +2,7 @@ package com.example.candystore.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.candystore.repository.AuthRepository
+import com.example.candystore.data.repository.AuthRepository
 
 class MainViewModelProviderFactory(
     private val authRepository: AuthRepository
