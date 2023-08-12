@@ -20,20 +20,19 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.authResponse.observe(viewLifecycleOwner, Observer {
-            when(it) {
+        viewModel.authResponse.observe(viewLifecycleOwner) { response ->
+            when (response) {
                 is Resource.Success -> {
                     lifecycleScope.launch {
-                        userPreferences.saveAuthToken(it.data.token)
-                        Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                        userPreferences.saveAuthToken(response.data.token)
                     }
-
                 }
+
                 is Resource.Error -> {
                     Toast.makeText(requireContext(), "Error login", Toast.LENGTH_SHORT).show()
                 }
             }
-        })
+        }
 
         binding.singInBtn.setOnClickListener {
             val email = binding.loginInputEditText.text.toString().trim()
