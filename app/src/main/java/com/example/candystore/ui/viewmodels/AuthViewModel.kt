@@ -35,8 +35,8 @@ class AuthViewModel(
 
     }
 
-    fun login(login: String, password: String) = viewModelScope.launch {
-        _authResponse.postValue(authRepository.login(login, password))
+    fun login(userAuth: UserAuth) = viewModelScope.launch {
+        _authResponse.postValue(authRepository.login(userAuth))
 
     }
 

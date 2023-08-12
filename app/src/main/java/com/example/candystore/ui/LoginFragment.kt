@@ -30,11 +30,11 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         })
 
         binding.singInBtn.setOnClickListener {
-            val login = binding.loginInputEditText.text.toString().trim()
+            val email = binding.loginInputEditText.text.toString().trim()
             val password = binding.passwordInputEditText.text.toString().trim()
-            val userAuth = UserAuth(login, password)
+            val userAuth = UserAuth(email, password)
             //@todo add input validation
-            viewModel.login(login, password)
+            viewModel.login(userAuth)
         }
     }
 

@@ -8,7 +8,7 @@ class AuthRepository : BaseRepository(){
     suspend fun validateUser(token: String) =
         AuthRetrofitInstance.authApi.checkUser(token)
 
-    suspend fun login(login: String, password: String) = safeApiCall {
-        AuthRetrofitInstance.authApi.login(login, password)
+    suspend fun login(userAuth: UserAuth) = safeApiCall {
+        AuthRetrofitInstance.authApi.login(userAuth)
     }
 }

@@ -17,10 +17,9 @@ interface AuthApi {
         @Query("token" ) token: String
     ) : AuthResponse
 
-    @FormUrlEncoded
+
     @POST("auth/login")
     suspend fun login(
-        @Field("email") login: String,
-        @Field("password") password: String
+        @Body body: UserAuth
     ): AuthResponse
 }
