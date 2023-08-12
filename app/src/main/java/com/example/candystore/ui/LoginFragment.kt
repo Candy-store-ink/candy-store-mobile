@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.example.candystore.data.models.UserAuth
 import com.example.candystore.data.repository.AuthRepository
 import com.example.candystore.databinding.FragmentLoginBinding
 import com.example.candystore.ui.base.BaseFragment
 import com.example.candystore.ui.viewmodels.AuthViewModel
 import com.example.candystore.utils.Resource
+import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
@@ -21,7 +23,11 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         viewModel.authResponse.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                    lifecycleScope.launch {
+                        userPreferences.saveAuthToken(it.data.token)
+                        Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                    }
+
                 }
                 is Resource.Error -> {
                     Toast.makeText(requireContext(), "Error login", Toast.LENGTH_SHORT).show()
