@@ -40,6 +40,10 @@ class AuthViewModel(
 
     }
 
+    fun saveAuthToken(token: String) = viewModelScope.launch {
+        authRepository.saveAuthToken(token)
+    }
+
 
 
 

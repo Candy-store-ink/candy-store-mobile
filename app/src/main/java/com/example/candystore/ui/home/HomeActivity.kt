@@ -1,4 +1,4 @@
-package com.example.candystore.ui
+package com.example.candystore.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

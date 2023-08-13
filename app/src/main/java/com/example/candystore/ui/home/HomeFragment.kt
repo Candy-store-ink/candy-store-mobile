@@ -1,4 +1,4 @@
-package com.example.candystore.ui
+package com.example.candystore.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
