@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import com.example.candystore.data.api.AuthApi
+import com.example.candystore.data.api.UserApi
 import com.example.candystore.data.models.UserAuth
 import com.example.candystore.data.repository.AuthRepository
+import com.example.candystore.data.repository.UserRepository
 import com.example.candystore.databinding.FragmentLoginBinding
 import com.example.candystore.ui.base.BaseFragment
 import com.example.candystore.ui.enable
@@ -32,6 +35,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
                 is Resource.Error -> {
                     Toast.makeText(requireContext(), "Error login", Toast.LENGTH_SHORT).show()
                 }
+                is Resource.Loading ->{}
             }
         }
 
@@ -59,6 +63,9 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         container: ViewGroup?
     ) = FragmentLoginBinding.inflate(inflater, container, false)
 
-    override fun getFragmentRepository() = AuthRepository(userPreferences)
+    override fun getFragmentRepository(): AuthRepository {
+        val api = baseRetrofitInstance.buildApi(AuthApi::class.java)
+        return AuthRepository(api, userPreferences)
+    }
 
 }

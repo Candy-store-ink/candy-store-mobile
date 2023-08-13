@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
-    val authRepository: AuthRepository
+    private val authRepository: AuthRepository
 ) : ViewModel() {
     private val _isLoading = MutableStateFlow(true)
     val isLoading = _isLoading.asStateFlow()
@@ -25,14 +25,9 @@ class AuthViewModel(
 
     init {
         viewModelScope.launch {
-            validateUser("")
             delay(5000)
             _isLoading.value = false
         }
-    }
-
-    fun validateUser(token: String) = viewModelScope.launch {
-
     }
 
     fun login(userAuth: UserAuth) = viewModelScope.launch {
