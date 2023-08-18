@@ -20,4 +20,8 @@ class ProductsViewModel(
         _user.value = Resource.Loading
         _user.value = repository.getUser(token)
     }
+
+    fun logout(token: String) = viewModelScope.launch {
+        _user.postValue(repository.logout(token))
+    }
 }

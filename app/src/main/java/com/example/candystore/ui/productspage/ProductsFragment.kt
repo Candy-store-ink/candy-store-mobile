@@ -1,5 +1,6 @@
 package com.example.candystore.ui.productspage
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,8 @@ import com.example.candystore.data.models.User
 import com.example.candystore.data.repository.UserRepository
 import com.example.candystore.databinding.FragmentProductsBinding
 import com.example.candystore.ui.base.BaseFragment
+import com.example.candystore.ui.login.LoginActivity
+import com.example.candystore.ui.startNewActivity
 import com.example.candystore.ui.viewmodels.ProductsViewModel
 import com.example.candystore.ui.visible
 import com.example.candystore.utils.Resource
@@ -27,20 +30,26 @@ class ProductsFragment : BaseFragment<ProductsViewModel, FragmentProductsBinding
 
         val token = runBlocking { userPreferences.authToken.first() }
         if (token != null) {
-            viewModel.getUser(token)
+            //viewModel.logout("Bearer $token")
         }
 
         viewModel.user.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is Resource.Success -> {
                     binding.progressBar.visible(false)
-                    updateUi(it.data.user)
+                    //updateUi(it.data.user)
+                    runBlocking {
+                        userPreferences.saveAuthToken("")
+                    }
+                    val intent = Intent (activity,LoginActivity::class.java)
+                    activity?.startActivity(intent)
+
                 }
                 is Resource.Loading -> {
                     binding.progressBar.visible(true)
                 }
                 is Resource.Error -> {
-
+                    binding.progressBar.visible(true)
                 }
             }
         })

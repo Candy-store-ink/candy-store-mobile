@@ -8,4 +8,8 @@ class UserRepository(
     suspend fun getUser(token: String) = safeApiCall {
         userApi.validate(token)
     }
+
+    suspend fun logout(token: String) = safeApiCall {
+        userApi.logout(token)
+    }
 }

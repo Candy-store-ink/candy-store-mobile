@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.example.candystore.data.UserPreferences
 import com.example.candystore.data.api.BaseRetrofitInstance
-import com.example.candystore.data.api.UserRetrofitInstance
 import com.example.candystore.data.repository.BaseRepository
 import com.example.candystore.ui.viewmodels.ViewModelProviderFactory
 import kotlinx.coroutines.flow.first

@@ -16,19 +16,10 @@ import kotlinx.coroutines.launch
 class AuthViewModel(
     private val authRepository: AuthRepository
 ) : ViewModel() {
-    private val _isLoading = MutableStateFlow(true)
-    val isLoading = _isLoading.asStateFlow()
 
     private val _authResponse: MutableLiveData<Resource<AuthResponse>> = MutableLiveData()
     val authResponse: LiveData<Resource<AuthResponse>>
         get() = _authResponse
-
-    init {
-        viewModelScope.launch {
-            delay(5000)
-            _isLoading.value = false
-        }
-    }
 
     fun login(userAuth: UserAuth) = viewModelScope.launch {
         _authResponse.postValue(authRepository.login(userAuth))
@@ -38,8 +29,5 @@ class AuthViewModel(
     fun saveAuthToken(token: String) = viewModelScope.launch {
         authRepository.saveAuthToken(token)
     }
-
-
-
 
 }

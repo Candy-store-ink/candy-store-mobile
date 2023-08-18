@@ -2,7 +2,6 @@ package com.example.candystore.data.repository
 
 import com.example.candystore.data.UserPreferences
 import com.example.candystore.data.api.AuthApi
-import com.example.candystore.data.api.AuthRetrofitInstance
 import com.example.candystore.data.models.UserAuth
 
 class AuthRepository(
@@ -13,6 +12,8 @@ class AuthRepository(
     suspend fun login(userAuth: UserAuth) = safeApiCall {
         authApi.login(userAuth)
     }
+
+
 
     suspend fun saveAuthToken(token: String) {
         preferences.saveAuthToken(token)
