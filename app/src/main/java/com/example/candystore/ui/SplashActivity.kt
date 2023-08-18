@@ -19,10 +19,11 @@ class SplashActivity : AppCompatActivity() {
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                checkToken()
+
                 viewModel.isLoading.value
             }
         }
+        checkToken()
     }
 
     private fun checkToken() {

@@ -3,11 +3,16 @@ package com.example.candystore.ui
 import android.app.Activity
 import android.content.Intent
 import android.view.View
+import com.example.candystore.R
 
 fun<A: Activity> Activity.startNewActivity(activity: Class<A>) {
     Intent(this, activity).also {
         it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(it)
+        overridePendingTransition(
+            R.anim.slide_in_right,
+            R.anim.slide_out_left
+        )
     }
 }
 

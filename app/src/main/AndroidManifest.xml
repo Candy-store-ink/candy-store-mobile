@@ -30,8 +30,9 @@
             android:theme="@style/Theme.CandyStore" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CandyStore">
         </activity>
     </application>
 
