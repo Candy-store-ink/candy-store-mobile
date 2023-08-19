@@ -14,13 +14,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
+                android:layout_marginBottom="@dimen/_10dp"
                 android:id="@+id/logo_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,8 +30,10 @@
                 android:contentDescription="@string/logo_imView_cont_desc"
                 app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout_login"
@@ -47,6 +51,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/textInputLayout_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo_imageView"
                 app:startIconDrawable="@drawable/baseline_person_2_24">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -73,6 +78,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/hint_textview_forgot_pass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayout_login"
                 app:startIconDrawable="@drawable/baseline_lock_person_24">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +102,8 @@
                 app:layout_constraintBottom_toTopOf="@id/sing_in_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.914"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayout_password"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/sing_in_btn"
@@ -112,7 +119,8 @@
                 android:typeface="normal"
                 app:layout_constraintBottom_toTopOf="@+id/hint_textview_guest_btn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_textview_forgot_pass"/>
 
             <TextView
                 android:id="@+id/hint_textview_guest_btn"
@@ -124,7 +132,8 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/cont_as_guest_click_TV"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sing_in_btn"/>
 
             <TextView
                 android:id="@+id/cont_as_guest_click_TV"
@@ -140,20 +149,21 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/hint_textview_guest_btn"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

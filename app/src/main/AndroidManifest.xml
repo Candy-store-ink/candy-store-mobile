@@ -32,7 +32,6 @@
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:name=".ui.login.LoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.CandyStore">
         </activity>
     </application>
