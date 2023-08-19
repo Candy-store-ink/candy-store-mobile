@@ -29,6 +29,7 @@
             android:exported="false"
             android:theme="@style/Theme.CandyStore" />
         <activity
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait"
