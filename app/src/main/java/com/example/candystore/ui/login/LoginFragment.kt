@@ -10,15 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.example.candystore.data.api.AuthApi
 import com.example.candystore.data.models.UserAuth
 import com.example.candystore.data.repository.AuthRepository
 import com.example.candystore.databinding.FragmentLoginBinding
 import com.example.candystore.ui.base.BaseFragment
 import com.example.candystore.ui.enable
+import com.example.candystore.ui.handleApiError
+import com.example.candystore.ui.productspage.ProductsActivity
+import com.example.candystore.ui.startNewActivity
 import com.example.candystore.ui.viewmodels.AuthViewModel
 import com.example.candystore.ui.visible
 import com.example.candystore.utils.Resource
+import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
@@ -53,29 +59,27 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
     private fun login() {
         binding.singInBtn.setOnClickListener {
             val userAuth = UserAuth(email, password)
-            binding.progressBar.visible(true)
             viewModel.login(userAuth)
 
         }
     }
 
     private fun handleLoginNetworkResponse() {
-        viewModel.authResponse.observe(viewLifecycleOwner) { response ->
-            binding.progressBar.visible(false)
-            when (response) {
+        viewModel.authResponse.observe(viewLifecycleOwner, Observer {
+            binding.progressBar.visible(it is Resource.Loading)
+            when (it) {
                 is Resource.Success -> {
-                    viewModel.saveAuthToken(response.data.token)
+                    lifecycleScope.launch {
+                        viewModel.saveAuthToken(it.data.token)
+                        requireActivity().startNewActivity(ProductsActivity::class.java)
+                    }
                 }
 
-                is Resource.Error -> {
-                    Toast.makeText(requireContext(), "Error login", Toast.LENGTH_SHORT).show()
-                }
+                is Resource.Error -> handleApiError(it)
 
-                is Resource.Loading -> {
-                    binding.singInBtn.enable(false)
-                }
+                else -> {}
             }
-        }
+        })
     }
     private fun enterEmail() {
         binding.loginInputEditText.addTextChangedListener {

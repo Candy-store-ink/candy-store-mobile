@@ -22,11 +22,12 @@ class AuthViewModel(
         get() = _authResponse
 
     fun login(userAuth: UserAuth) = viewModelScope.launch {
+        _authResponse.value = Resource.Loading
         _authResponse.postValue(authRepository.login(userAuth))
 
     }
 
-    fun saveAuthToken(token: String) = viewModelScope.launch {
+    suspend fun saveAuthToken(token: String) {
         authRepository.saveAuthToken(token)
     }
 
