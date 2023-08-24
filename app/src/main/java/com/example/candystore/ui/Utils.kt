@@ -9,6 +9,7 @@ import com.example.candystore.ui.login.LoginFragment
 import com.example.candystore.utils.Resource
 import com.google.android.material.snackbar.Snackbar
 
+
 fun<A: Activity> Activity.startNewActivity(activity: Class<A>) {
     Intent(this, activity).also {
         it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -31,7 +32,7 @@ fun View.enable(isEnable: Boolean) {
 fun View.snackbar(message:String, action: (() -> Unit)? = null) {
     val snackbar = Snackbar.make(this, message, Snackbar.LENGTH_LONG)
     action?.let {
-        snackbar.setAction("Retry") {
+        snackbar.setAction(resources.getString(R.string.retry)) {
             it()
         }
     }
@@ -44,12 +45,12 @@ fun Fragment.handleApiError(
 ) {
     when {
         failure.isNetworkError -> requireView().snackbar(
-            "Please check your internet connection",
+            resources.getString(R.string.internet_error),
             retry
         )
         failure.errorCode == 401 -> {
             if (this is LoginFragment) {
-                requireView().snackbar("You`ve entered incorrect email or password")
+                requireView().snackbar(resources.getString(R.string.login_incorrect))
             } else {
                 //@todo perform logout operation
             }

@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -85,7 +84,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         binding.loginInputEditText.addTextChangedListener {
             val colorState: ColorStateList
             email = binding.loginInputEditText.text.toString().trim()
-            //@todo add internet check
+
             if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 colorState = changeColorState(Color.GREEN)
 
@@ -100,7 +99,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
     private fun enterPass() {
         binding.passwordInputEditText.addTextChangedListener {
             password = binding.passwordInputEditText.text.toString().trim()
-            //@todo add internet check
+
             val colorState: ColorStateList
             if (password.length >= PASS_MIN_CHARS) {
                 colorState = changeColorState(Color.GREEN)
