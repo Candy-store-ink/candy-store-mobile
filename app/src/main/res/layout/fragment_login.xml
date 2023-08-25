@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/login_layout_padding"
-    android:background="@color/btn_sing_in_first_1">
+    android:background="@color/background_color">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,6 +40,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_hint"
+                android:textColorHint="@color/black"
+                app:startIconTint="@color/black"
                 app:boxCornerRadiusTopEnd="@dimen/corners_radius_20dp"
                 app:boxCornerRadiusTopStart="@dimen/corners_radius_20dp"
                 app:boxStrokeColor="@color/input_layout_stroke_color"
@@ -58,6 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/input_text_size_16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +72,7 @@
                 android:hint="@string/password_hint"
                 app:boxCornerRadiusBottomEnd="@dimen/corners_radius_20dp"
                 app:boxCornerRadiusBottomStart="@dimen/corners_radius_20dp"
+                android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/input_layout_stroke_color"
                 app:boxStrokeWidth="@dimen/boxStrokeWidth"
                 app:endIconMode="password_toggle"
@@ -78,13 +82,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textInputLayout_login"
-                app:startIconDrawable="@drawable/baseline_lock_person_24">
+                app:startIconDrawable="@drawable/baseline_lock_person_24"
+                app:startIconTint="@color/black"
+                app:endIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/input_text_size_16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,6 +104,7 @@
                 android:fontFamily="@font/itim"
                 android:text="@string/forgot_pass_TV"
                 android:textSize="@dimen/_16sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/sing_in_btn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,6 +120,7 @@
                 android:background="@drawable/btn_sing_in_background"
                 android:fontFamily="@font/itim"
                 android:text="@string/sing_in_btn_text"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_36sp"
@@ -128,6 +137,7 @@
                 android:fontFamily="@font/itim"
                 android:text="@string/don_t_have_an_account"
                 android:textSize="@dimen/_16sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/cont_as_guest_click_TV"
                 app:layout_constraintEnd_toEndOf="parent"
