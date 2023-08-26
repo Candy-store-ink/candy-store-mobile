@@ -49,6 +49,7 @@
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
                 app:hintTextColor="@color/black"
+                app:endIconTint="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/textInputLayout_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +79,7 @@
                 app:endIconMode="password_toggle"
                 app:errorEnabled="true"
                 app:hintTextColor="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/hint_textview_forgot_pass"
+                app:layout_constraintBottom_toTopOf="@+id/forgot_pass_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textInputLayout_login"
@@ -96,12 +97,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/hint_textview_forgot_pass"
+                android:id="@+id/forgot_pass_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:layout_marginBottom="@dimen/_15dp"
-                android:clickable="true"
                 android:fontFamily="@font/itim"
                 android:text="@string/forgot_pass_TV"
                 android:textSize="@dimen/_12sp"
@@ -114,6 +114,7 @@
                 app:layout_constraintTop_toBottomOf="@id/textInputLayout_password"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/Theme.AppCompat.DayNight"
                 android:id="@+id/sing_in_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -129,7 +130,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/hint_textview_guest_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hint_textview_forgot_pass"/>
+                app:layout_constraintTop_toBottomOf="@id/forgot_pass_btn"/>
 
             <TextView
                 android:id="@+id/hint_textview_guest_btn"
@@ -140,17 +141,16 @@
                 android:textSize="@dimen/_16sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/cont_as_guest_click_TV"
+                app:layout_constraintBottom_toTopOf="@id/guest_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sing_in_btn"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/cont_as_guest_click_TV"
+                android:id="@+id/guest_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10dp"
-                android:clickable="true"
                 android:fontFamily="@font/itim"
                 android:text="@string/btn_continue_as_guest"
                 android:textAlignment="center"

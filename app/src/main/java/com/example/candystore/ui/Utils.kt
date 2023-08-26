@@ -27,6 +27,11 @@ fun View.visible(isVisible: Boolean) {
 
 fun View.enable(isEnable: Boolean) {
     isEnabled = isEnable
+    alpha = if (isEnable) {
+        1.0F
+    } else {
+        0.5F
+    }
 }
 
 fun View.snackbar(message:String, action: (() -> Unit)? = null) {

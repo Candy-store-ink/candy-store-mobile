@@ -8,6 +8,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -24,6 +25,7 @@ import com.example.candystore.ui.viewmodels.AuthViewModel
 import com.example.candystore.ui.visible
 import com.example.candystore.utils.Resource
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
@@ -33,10 +35,10 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.progressBar.visible(false)
         binding.singInBtn.enable(false)
 
+        setUpStartingAnimations()
         handleLoginNetworkResponse()
         enterEmail()
         enterPass()
@@ -61,6 +63,20 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
             viewModel.login(userAuth)
 
         }
+    }
+
+    private fun setUpStartingAnimations() {
+        val alphaAnim = AnimationUtils.loadAnimation(requireContext(), com.example.candystore.R.anim.top_animations)
+        val loginTextFieldAnim = AnimationUtils.loadAnimation(requireContext(), com.example.candystore.R.anim.left_anim)
+        val passTextFieldAnim = AnimationUtils.loadAnimation(requireContext(), com.example.candystore.R.anim.right_anim)
+
+        binding.logoImageView.startAnimation(alphaAnim)
+        binding.forgotPassBtn.startAnimation(alphaAnim)
+        binding.guestBtn.startAnimation(alphaAnim)
+        binding.hintTextviewGuestBtn.startAnimation(alphaAnim)
+        binding.textInputLayoutLogin.startAnimation(loginTextFieldAnim)
+        binding.textInputLayoutPassword.startAnimation(passTextFieldAnim)
+        binding.singInBtn.startAnimation(alphaAnim)
     }
 
     private fun handleLoginNetworkResponse() {
