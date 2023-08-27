@@ -1,106 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/_10dp">
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_search"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-        android:layout_width="0dp"
+    <ScrollView
+        android:id="@+id/user_products_scrollView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:textColorHint="@color/white"
-        app:boxBackgroundMode="filled"
-        app:boxStrokeColor="@color/white"
-        app:boxStrokeWidth="0dp"
-        app:endIconDrawable="@drawable/baseline_search_24"
-        app:endIconMode="custom"
-        app:endIconTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/categories_tv"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:layout_constraintVertical_weight="1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/searchInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_field_background"
-            android:hint="@string/search"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textSize="@dimen/input_text_size_16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/categories_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/itim"
-        android:text="@string/categories"
-        android:textColor="@color/FF2FB8"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/categories_rv"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout_search"
-        app:layout_constraintVertical_weight="1" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categories_rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/allProducts_btn"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/categories_tv"
-        app:layout_constraintVertical_weight="10" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/allProducts_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:background="@null"
-        android:text="@string/see_all"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/F68084"
+        app:layout_constraintVertical_weight="11"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/categories_rv"
-        app:layout_constraintVertical_weight="1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/textInputLayout_search"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintBottom_toTopOf="@id/categories_tv"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                android:background="@drawable/search_field_background"
+                app:queryHint="@string/search"
+                app:iconifiedByDefault="false" />
+
+            <TextView
+                android:id="@+id/categories_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:fontFamily="@font/itim"
+                android:text="@string/categories"
+                android:textColor="@color/FF2FB8"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toTopOf="@+id/categories_rv"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayout_search"
+                app:layout_constraintVertical_weight="1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categories_rv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/allProducts_btn"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/categories_tv"
+                app:layout_constraintVertical_weight="10" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/allProducts_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@null"
+                android:text="@string/see_all"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/F68084"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/categories_rv"
+                app:layout_constraintVertical_weight="1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_10dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_10dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/color_theme"
-        app:itemActiveIndicatorStyle="@color/white"
-        app:itemIconTint="@color/F2B7C6"
+        app:itemIconTint="@drawable/bottom_navigation_item_colors"
+        app:itemTextColor="@color/F68084"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/allProducts_btn"
+        app:layout_constraintTop_toBottomOf="@id/user_products_scrollView"
         app:layout_constraintVertical_weight="1"
         app:menu="@menu/bottom_navigation_menu" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/_10dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/_10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

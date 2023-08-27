@@ -11,4 +11,8 @@
     <string name="search">Search</string>
     <string name="categories">Categories</string>
     <string name="see_all">See all</string>
+    <string name="products">Products</string>
+    <string name="favourites">Favourites</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
 </resources>
