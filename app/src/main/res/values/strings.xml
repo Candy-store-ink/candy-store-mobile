@@ -8,4 +8,7 @@
     <string name="password_hint">Password</string>
     <string name="login_hint">Login</string>
     <string name="logo_imView_cont_desc">logo image view</string>
+    <string name="search">Search</string>
+    <string name="categories">Categories</string>
+    <string name="see_all">See all</string>
 </resources>

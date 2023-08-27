@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.isLoading.value
             }
         }
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.fragment_user_products_page)
 
 
     }
