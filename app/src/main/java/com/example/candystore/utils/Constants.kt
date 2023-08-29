@@ -2,6 +2,6 @@ package com.example.candystore.utils
 
 class Constants {
     companion object {
-        const val BASE_URL = "https://ec2-13-43-88-161.eu-west-2.compute.amazonaws.com/api/v1/"
+        const val BASE_URL = "http://ec2-52-56-177-82.eu-west-2.compute.amazonaws.com/api/v1/"
     }
 }
