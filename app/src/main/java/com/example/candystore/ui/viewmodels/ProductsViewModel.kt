@@ -12,16 +12,13 @@ import kotlinx.coroutines.launch
 class ProductsViewModel(
     private val repository: UserRepository
 ) : ViewModel() {
-    private val _user: MutableLiveData<Resource<AuthResponse>> = MutableLiveData()
-    val user: LiveData<Resource<AuthResponse>>
+    private val _user: MutableLiveData<Resource<Unit>> = MutableLiveData()
+    val user: LiveData<Resource<Unit>>
         get() = _user
 
-    fun getUser(token: String) = viewModelScope.launch {
-        _user.value = Resource.Loading
-        _user.value = repository.getUser(token)
-    }
 
     fun logout(token: String) = viewModelScope.launch {
+        _user.value = Resource.Loading
         _user.postValue(repository.logout(token))
     }
 }

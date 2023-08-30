@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.candystore.R
 import com.example.candystore.data.api.UserApi
@@ -29,15 +30,16 @@ class ProductsFragment : BaseFragment<ProductsViewModel, FragmentProductsBinding
         binding.progressBar.visible(false)
 
         val token = runBlocking { userPreferences.authToken.first() }
-        if (token != null) {
-            //viewModel.logout("Bearer $token")
+
+        binding.logoutBtn.setOnClickListener {
+            viewModel.logout("Bearer $token")
         }
 
         viewModel.user.observe(viewLifecycleOwner, Observer {
+            binding.progressBar.visible(it is Resource.Loading)
             when(it) {
                 is Resource.Success -> {
                     binding.progressBar.visible(false)
-                    //updateUi(it.data.user)
                     runBlocking {
                         userPreferences.saveAuthToken("")
                     }
@@ -45,21 +47,12 @@ class ProductsFragment : BaseFragment<ProductsViewModel, FragmentProductsBinding
                     activity?.startActivity(intent)
 
                 }
-                is Resource.Loading -> {
-                    binding.progressBar.visible(true)
-                }
+                is Resource.Loading -> {}
                 is Resource.Error -> {
-                    binding.progressBar.visible(true)
                 }
             }
         })
 
-    }
-
-    private fun updateUi(user: User) {
-        with(binding) {
-            tvTest.text = user.firstName
-        }
     }
 
     override fun getViewModel(): Class<ProductsViewModel> = ProductsViewModel::class.java

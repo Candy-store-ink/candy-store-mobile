@@ -15,5 +15,5 @@ interface UserApi {
     @DELETE("logout")
     suspend fun logout(
         @Header("Authorization") authHeader: String
-    ): AuthResponse
+    ): Unit
 }

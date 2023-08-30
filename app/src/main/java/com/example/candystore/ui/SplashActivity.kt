@@ -27,10 +27,10 @@ class SplashActivity : AppCompatActivity() {
         val userPreferences = UserPreferences(this)
         lifecycleScope.launch {
             userPreferences.authToken.collect { token ->
-                if (token != null) {
-                    startNewActivity(ProductsActivity::class.java)
-                } else {
+                if (token.equals("") || token == null) {
                     startNewActivity(LoginActivity::class.java)
+                } else {
+                    startNewActivity(ProductsActivity::class.java)
                 }
             }
         }
