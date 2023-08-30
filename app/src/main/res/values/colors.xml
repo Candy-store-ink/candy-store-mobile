@@ -16,6 +16,7 @@
     <color name="red">#BDFF0000</color>
     <color name="green">#BD11FF00</color>
     <color name="color_theme">#6B3F5C</color>
+    <color name="background_color">#FFECF9</color>
     <color name="edit_text_stroke">#F2989B</color>
     <color name="FF2FB8">#FF2FB8</color>
     <color name="F68084">#F68084</color>
